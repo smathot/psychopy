@@ -719,6 +719,24 @@ class Window:
 
         return im
 
+    def saveFrame(self, fileName):
+        """
+        Retrieves the current Window and writes it to disk.
+        
+        :parameters"
+        
+            filename: name of target image file. The format of the image is
+                determined by the filename extension. You can use any format
+                that is supported by PIL.
+                
+        :examples:
+        
+            # Save the current Window to `trialExample.png`.
+            myWin.saveFrame('trialExample.png')
+        """
+        im = self._getFrame()
+        im.save(fileName)
+
     def saveMovieFrames(self, fileName, mpgCodec='mpeg1video',
                         fps=30, clearFrames=True):
         """
